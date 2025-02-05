@@ -4,6 +4,11 @@ import org.springframework.http.HttpStatus;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Response<T> {
     @JsonIgnore
     private HttpStatus status;
@@ -46,46 +51,6 @@ public class Response<T> {
         }
 
         return new Response<T>(HttpStatus.BAD_REQUEST, CODE_BAD_REQUEST, msg, null, err);
-    }
-
-    public HttpStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(HttpStatus status) {
-        this.status = status;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public Exception getErr() {
-        return err;
-    }
-
-    public void setErr(Exception err) {
-        this.err = err;
     }
 
     public boolean isErr() {
