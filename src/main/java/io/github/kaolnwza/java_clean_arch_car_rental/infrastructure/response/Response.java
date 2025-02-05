@@ -29,7 +29,7 @@ public class Response<T> {
     }
 
     public static <T> Response<T> New(T data) {
-        return new Response<T>(null, null, "success", data, null);
+        return new Response<T>(null, "0", "success", data, null);
     }
 
     public static <T> Response<T> NewInternalServerError(String code, String msg, Exception err) {

@@ -20,6 +20,7 @@ public class CarRepositoryImpl implements CarRepository {
 
     @Override
     public Optional<CarsSchema> get(UUID id) {
+        System.out.println("id = " + id);
         return jpaCarRepo.findById(id);
     }
 

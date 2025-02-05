@@ -22,11 +22,9 @@ public class GetCarUsecase {
     }
 
     public Response<CarDTO> execute(UUID id) {
-        System.out.println("dddd " + id);
         try {
 
             Optional<CarsSchema> carSche = carRepo.get(id);
-            System.out.println("ccccccc" + carSche);
             if (carSche.isEmpty()) {
                 logger.error("not found");
                 return CarException.CarExceptionNotFound();
