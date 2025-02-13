@@ -17,15 +17,13 @@ import io.github.kaolnwza.java_clean_arch_car_rental.domain.rental.dto.RentalApp
 import io.github.kaolnwza.java_clean_arch_car_rental.infrastructure.response.Response;
 import io.github.kaolnwza.java_clean_arch_car_rental.usecases.rental.RentalApplicateUsecase;
 import io.github.kaolnwza.java_clean_arch_car_rental.utils.BindingExceptionBuilder;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/rentals")
+@RequiredArgsConstructor
 public class RentalController {
     private final RentalApplicateUsecase rentalApplicateUsecase;
-
-    public RentalController(RentalApplicateUsecase rentalApplicateUsecase) {
-        this.rentalApplicateUsecase = rentalApplicateUsecase;
-    }
 
     @PostMapping("")
     public ResponseEntity<Response<?>> RentalApplicateController(

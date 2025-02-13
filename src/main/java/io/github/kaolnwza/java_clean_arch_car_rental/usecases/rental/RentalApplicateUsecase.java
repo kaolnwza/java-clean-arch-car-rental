@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import io.github.kaolnwza.java_clean_arch_car_rental.domain.rental.dto.RentalApplicateDTO;
 import io.github.kaolnwza.java_clean_arch_car_rental.domain.rental.exceptions.RentalException;
@@ -11,14 +12,12 @@ import io.github.kaolnwza.java_clean_arch_car_rental.domain.rental.repositories.
 import io.github.kaolnwza.java_clean_arch_car_rental.infrastructure.database.schema.RentalsSchema;
 import io.github.kaolnwza.java_clean_arch_car_rental.infrastructure.response.Response;
 import io.github.kaolnwza.java_clean_arch_car_rental.usecases.car.GetCarUsecase;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class RentalApplicateUsecase {
     private final RentalReposotory rentalRepo;
     private static final Logger logger = LoggerFactory.getLogger(RentalApplicateUsecase.class);
-
-    public RentalApplicateUsecase(RentalReposotory rentalReposotory) {
-        this.rentalRepo = rentalReposotory;
-    }
 
     public <T> Response<T> execute(RentalApplicateDTO req) {
         try {
