@@ -11,6 +11,7 @@ import io.github.kaolnwza.java_clean_arch_car_rental.infrastructure.database.sch
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@Repository
 public class RentalRepositoryImpl implements RentalReposotory {
     private final JpaRentalRepository jpaRentalRepo;
 

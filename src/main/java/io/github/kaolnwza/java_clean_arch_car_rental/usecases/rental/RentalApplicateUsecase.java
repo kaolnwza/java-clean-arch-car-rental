@@ -15,6 +15,7 @@ import io.github.kaolnwza.java_clean_arch_car_rental.usecases.car.GetCarUsecase;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@Service
 public class RentalApplicateUsecase {
     private final RentalReposotory rentalRepo;
     private static final Logger logger = LoggerFactory.getLogger(RentalApplicateUsecase.class);

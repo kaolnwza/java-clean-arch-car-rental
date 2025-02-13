@@ -34,11 +34,13 @@ public class JavaCleanArchCarRental {
 		return new ListCarUsecase(carRepo);
 	}
 
-	@Bean
-	public RentalApplicateUsecase rentalApplicateUsecase(JpaRentalRepository jpaRentalRepository) {
-		RentalReposotory rentalReposotory = new RentalRepositoryImpl(jpaRentalRepository);
-		return new RentalApplicateUsecase(rentalReposotory);
-	}
+	// @Bean
+	// public RentalApplicateUsecase rentalApplicateUsecase(JpaRentalRepository
+	// jpaRentalRepository) {
+	// RentalReposotory rentalReposotory = new
+	// RentalRepositoryImpl(jpaRentalRepository);
+	// return new RentalApplicateUsecase(rentalReposotory);
+	// }
 
 	// @Bean
 	// public GetCarUsecases getCarUsecases(CarReposotory carRepo) {
