@@ -30,21 +30,13 @@ public class CarController {
     @GetMapping("/{id}")
     public ResponseEntity<Response<CarDTO>> GetCarController(@PathVariable UUID id) {
         Response<CarDTO> resp = getCarUc.execute(id);
-        if (resp.isErr()) {
-            return ResponseEntity.status(resp.getStatus()).body(resp);
-        }
-
-        return ResponseEntity.ok(resp);
+        return resp.serve();
     }
 
     @GetMapping("")
     public ResponseEntity<Response<List<CarDTO>>> ListCarController() {
         Response<List<CarDTO>> resp = listCarUc.execute();
-        if (resp.isErr()) {
-            return ResponseEntity.status(resp.getStatus()).body(resp);
-        }
-
-        return ResponseEntity.ok(resp);
+        return resp.serve();
     }
 
 }

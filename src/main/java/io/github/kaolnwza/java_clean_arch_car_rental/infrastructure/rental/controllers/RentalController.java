@@ -36,32 +36,6 @@ public class RentalController {
         }
 
         Response<?> resp = rentalApplicateUsecase.execute(req);
-        if (resp.isErr()) {
-            return ResponseEntity.status(resp.getStatus()).body(resp);
-        }
-
-        return ResponseEntity.ok(resp);
+        return resp.serveNull();
     }
 }
-
-// @RestController
-// @RequestMapping("/cars")
-// public class CarController {
-// private final GetCarUsecase getCarUc;
-
-// public CarController(GetCarUsecase getCarUc) {
-// this.getCarUc = getCarUc;
-// }
-
-// @GetMapping("/{id}")
-// public ResponseEntity<Response<CarDTO>> GetCarController(@PathVariable UUID
-// id) {
-// Response<CarDTO> resp = getCarUc.execute(id);
-// if (resp.getErr() != null) {
-// return ResponseEntity.status(resp.getStatus()).body(resp);
-// }
-
-// return ResponseEntity.ok(resp);
-// }
-
-// }

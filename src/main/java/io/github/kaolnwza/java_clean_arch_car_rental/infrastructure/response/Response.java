@@ -1,6 +1,7 @@
 package io.github.kaolnwza.java_clean_arch_car_rental.infrastructure.response;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -51,6 +52,36 @@ public class Response<T> {
         }
 
         return new Response<T>(HttpStatus.BAD_REQUEST, CODE_BAD_REQUEST, msg, null, err);
+    }
+
+    public ResponseEntity<Response<T>> serve() {
+        Response<T> r = new Response<T>(
+                this.getStatus(),
+                this.getCode(),
+                this.getMessage(),
+                this.getData(),
+                this.getErr());
+
+        if (this.isErr()) {
+            return ResponseEntity.status(r.getStatus()).body(r);
+        }
+
+        return ResponseEntity.ok(r);
+    }
+
+    public ResponseEntity<Response<?>> serveNull() {
+        Response<?> r = new Response<>(
+                this.getStatus(),
+                this.getCode(),
+                this.getMessage(),
+                this.getData(),
+                this.getErr());
+
+        if (this.isErr()) {
+            return ResponseEntity.status(r.getStatus()).body(r);
+        }
+
+        return ResponseEntity.ok(r);
     }
 
     public boolean isErr() {

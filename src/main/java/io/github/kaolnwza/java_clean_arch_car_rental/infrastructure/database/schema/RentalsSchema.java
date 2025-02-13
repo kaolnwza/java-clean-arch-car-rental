@@ -20,7 +20,6 @@ import lombok.Setter;
 public class RentalsSchema {
     @Id
     @GeneratedValue
-
     private UUID id;
     @Column(name = "car_id")
     private UUID carId;
